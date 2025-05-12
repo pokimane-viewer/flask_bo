@@ -1,5 +1,3 @@
-# flask_bo
-
 ![alt text](<Screenshot 2025-05-12 150220.png>)
 
 ![alt text](<Screenshot 2025-05-12 150200.png>)
