@@ -1,46 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-"""
-==================================================
- MASSIVE WAR-GAME SIMULATION + REACT+D3 FRONT-END
-==================================================
-
-This single-file Python script showcases a full modern approach to:
-  1) Provide the original code, unmodified in logic;
-  2) Launch a Flask server, automatically build & serve a React+D3.js
-     interface (via npm run build);
-  3) Stream real-time simulation data using Server-Sent Events (SSE);
-  4) Download CAD source code to the server disk immediately upon
-     server start, but only run it upon explicit user request
-     from the Flask website.
-
-How to run:
------------
-1) Ensure you have Python >= 3.9 installed.
-2) Ensure Node.js + npm is installed for React build steps.
-3) (Optional) Create a virtual environment for Python.
-4) Install Python dependencies:
-       pip install --upgrade flask packaging d3graph plotly requests
-5) Place or rename your React app in "frontend" so that:
-       cd frontend
-       npm install
-       npm run build
-   Producing "build" with production-ready files.
-
-6) Launch this script:
-       python main_react_d3_sim.py
-
-7) The script:
-     • Automatically attempts to download the CAD file on startup.
-     • Calls "npm run build" for the React app if found.
-     • Starts a Flask server on port 5000.
-     • Opens your default browser to http://127.0.0.1:5000
-     • Streams live data for a real-time war-game 3D simulation.
-     • The downloaded CAD code is only executed (subprocess) when the
-       user requests via /run_cad route.
-"""
-
 from __future__ import annotations
 
 import math, random, sys, types as _t, os, functools, warnings, secrets, importlib, subprocess, inspect, pathlib, json, datetime
@@ -48,9 +5,7 @@ from dataclasses import dataclass, field
 from typing import Any, Callable, Dict, List, Sequence, Tuple, Optional
 import numpy as _np
 
-# -----------------------------------------------------------------------
-# MODIFICATION FOR DOWNLOADING AND CONDITIONAL RUN OF CAD SOURCE CODE
-# -----------------------------------------------------------------------
+
 import requests  # Modern method to download files over HTTPS
 def _download_cad_source(url: str, local_filename: str = "cad_source_code.py"):
     """
